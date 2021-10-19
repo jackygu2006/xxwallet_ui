@@ -12,12 +12,14 @@ class AccountInfo extends StatelessWidget {
       this.icon,
       this.network,
       this.cmixRoot,
+      this.cmixId,
       this.cmixStr});
   final Map? accInfo;
   final String? address;
   final String? icon;
   final String? network;
   final String? cmixRoot;
+  final String? cmixId;
   final String? cmixStr;
   @override
   Widget build(BuildContext context) {
@@ -50,9 +52,6 @@ class AccountInfo extends StatelessWidget {
       }
     }
 
-    print('====== cmixStr ======');
-    print(cmixStr);
-
     return Column(
       children: <Widget>[
         Padding(
@@ -76,7 +75,7 @@ class AccountInfo extends StatelessWidget {
                   Padding(
                     padding: EdgeInsets.only(right: 16),
                     child: JumpToBrowserLink(
-                      'https://protonet-dashboard.xx.network/nodes/$cmixRoot',
+                      'https://protonet-dashboard.xx.network/nodes/$cmixId',
                       text: 'Cmix Node: ' + cmixStr!,
                     ),
                   ),
