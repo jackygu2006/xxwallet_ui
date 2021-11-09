@@ -13,7 +13,9 @@ class AccountInfo extends StatelessWidget {
       this.network,
       this.cmixRoot,
       this.cmixId,
-      this.cmixStr});
+      this.cmixStr,
+      this.points,
+      this.currentPoints});
   final Map? accInfo;
   final String? address;
   final String? icon;
@@ -21,6 +23,8 @@ class AccountInfo extends StatelessWidget {
   final String? cmixRoot;
   final String? cmixId;
   final String? cmixStr;
+  final int? points;
+  final int? currentPoints;
   @override
   Widget build(BuildContext context) {
     List<Widget> list = [];
@@ -68,6 +72,13 @@ class AccountInfo extends StatelessWidget {
           child: Text(Fmt.address(address)!),
         ),
         // if xxnetwork
+        points != null && currentPoints != null
+            ? Padding(
+                padding: EdgeInsets.only(bottom: 16, top: 4),
+                child:
+                    Text('Points: current ${currentPoints.toString()}, last ${points.toString()}'),
+              )
+            : Container(),
         cmixStr != '' && cmixStr != null
             ? Row(
                 mainAxisAlignment: MainAxisAlignment.center,
